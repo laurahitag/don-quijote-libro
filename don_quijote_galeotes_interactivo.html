@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Don Quijote y los Galeotes - Aventura Interactiva</title>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2em;
+      background-color: #fdf6e3;
+      color: #333;
+    }
+    .choice {
+      margin-top: 1em;
+    }
+    button {
+      margin: 0.5em 0;
+      padding: 0.5em 1em;
+      font-size: 1em;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Don Quijote y los Galeotes</h1>
+  <div id="story">
+    <p>Avanzando por un camino polvoriento, Don Quijote y Sancho divisan un grupo de hombres encadenados, custodiados por guardias. Sancho, siempre curioso, pregunta quiénes son. Un guardia responde que son galeotes condenados por delitos.</p>
+    <div class="choice">
+      <p><strong>¿Qué decide hacer Don Quijote?</strong></p>
+      <button onclick="libertad()">Defender la libertad de los galeotes</button>
+      <button onclick="noIntervenir()">Respetar la ley y seguir adelante</button>
+    </div>
+  </div>
+
+  <script>
+    function libertad() {
+      document.getElementById("story").innerHTML = `
+        <p>Don Quijote, indignado por la injusticia, alza la voz contra los guardias. “No es justo condenar sin misericordia. ¡Es hora de hacer justicia!”</p>
+        <p>Arremete contra los guardias y, tras una pelea desigual, logra liberar a los galeotes, que huyen agradecidos... pero sin mostrar respeto alguno por su libertador.</p>
+        <div class="choice">
+          <p><strong>¿Qué hará Don Quijote ahora?</strong></p>
+          <button onclick="exigirAgradecimiento()">Exigir agradecimiento a los galeotes</button>
+          <button onclick="dejarIr()">Dejarlos marchar en libertad</button>
+        </div>
+      `;
+    }
+
+    function noIntervenir() {
+      document.getElementById("story").innerHTML = `
+        <p>Don Quijote reflexiona: “Quizá estos hombres han cometido crímenes y deben pagar por ellos”. Decide no intervenir, y Sancho asiente con alivio.</p>
+        <p>Prosiguen su camino en paz, aunque Don Quijote no puede evitar una punzada de duda en su conciencia.</p>
+        <p><em>Fin alternativo: a veces, incluso el caballero más noble debe contener su lanza.</em></p>
+      `;
+    }
+
+    function exigirAgradecimiento() {
+      document.getElementById("story").innerHTML = `
+        <p>Don Quijote alcanza a los galeotes y les exige que acudan a rendir homenaje a Dulcinea del Toboso. Los galeotes, burlones, lo apedrean antes de escapar de nuevo.</p>
+        <p>Herido en cuerpo pero no en espíritu, Don Quijote declara: “Más honra hay en la derrota justa que en la victoria vil”.</p>
+        <p><em>Fin: El caballero herido, pero digno.</em></p>
+      `;
+    }
+
+    function dejarIr() {
+      document.getElementById("story").innerHTML = `
+        <p>Don Quijote, satisfecho de haber hecho lo correcto, los deja marchar. Sancho observa con resignación cómo desaparecen sin mirar atrás.</p>
+        <p>—Quizá no haya recompensa —dice el escudero—, pero vuestra conciencia está limpia, señor.</p>
+        <p><em>Fin: Justicia por encima del reconocimiento.</em></p>
+      `;
+    }
+  </script>
+</body>
+</html>
